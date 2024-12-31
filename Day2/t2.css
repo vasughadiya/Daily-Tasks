@@ -1,0 +1,21 @@
+img {
+    size: 100%;
+    width: 100%;
+    height: auto;
+}
+
+.main {
+    text-align: center;
+    background-color: red;
+}
+
+.marq {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.headlines {
+    color: aliceblue;
+    font-size: 40px;
+    font-weight: bold;
+}

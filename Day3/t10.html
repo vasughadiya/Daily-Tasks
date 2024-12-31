@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 10</title>
+    <link rel="stylesheet" href="demo.css">
+</head>
+
+<body>
+    <div id="t10"></div>
+
+    <script>
+        const soryByAscii = (lst) => {
+            return lst.sort((a, b) => a.charCodeAt(0) - b.charCodeAt(0))
+        }
+
+        // const ary = ['b', 'B', 'w', 'W', 'a', 'A', 'c', 'C']
+        const ary = prompt('Enter some chars to sort by ascii','b, B, w, W, a, A, c, C').split(', ')
+        document.getElementById('t10').innerHTML += soryByAscii(ary) + "<br><br>if is doesn't work then insert a space and comma between each char"
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+.container {
+    max-width: 500px;
+    margin: 50px auto;
+    background: #fbfafa99;
+    border-radius: 8px;
+    padding: 50px;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    color: white;
+    background-color: #007bff;
+}
+
+.section-title {
+    margin-bottom: 15px;
+}
+
+.section-title span {
+    display: inline-block;
+    width: 24px;
+    background-color: #007bff;
+    color: white;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    text-align: center;
+    line-height: 24px;
+}

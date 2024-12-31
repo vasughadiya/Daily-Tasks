@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task 14</title>
+</head>
+
+<body>
+    <div id="t14"></div>
+
+    <script>
+        const div = document.getElementById('t14');
+        var input = prompt("Enter space-separated numbers to find min and max amoung them", '1 2 3 4 5')
+        var numbers = input.split(' ');
+        var min = Math.min(...numbers);
+        var max = Math.max(...numbers);
+        div.innerHTML = ('Given Numbers : ' + numbers + '<br>Min number : ' + min + '<br>Max number : ' + max);
+    </script>
+</body>
+
+</html>

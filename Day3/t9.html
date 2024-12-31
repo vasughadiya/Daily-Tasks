@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 9</title>
+    <link rel="stylesheet" href="demo.css">
+    <!-- <script src="t9.js"></script> -->
+</head>
+
+<body>
+    <div id="t9"></div>
+
+    <script>
+        const upper_left = (st) => {
+            let new_str = ''
+            for (let i = 0; i < st.length; i++) {
+                if (st[i] === st[i].toUpperCase()) {
+                    new_str += st[i]
+                }
+            }
+            for (let i = 0; i < st.length; i++) {
+                if (st[i] === st[i].toLowerCase()) {
+                    new_str += st[i]
+                }
+            }
+            // console.log(new_str);
+            return new_str
+            // document.getElementById('t9').innerHTML += new_str
+        }
+
+        const str = prompt("Enter string : ", "hApPyWrAa");
+
+        // upper_left(str);
+        document.getElementById('t9').innerHTML += upper_left(str)
+    </script>
+</body>
+
+</html>

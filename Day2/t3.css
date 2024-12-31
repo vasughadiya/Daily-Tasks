@@ -1,0 +1,74 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.bounce-up {
+    width: 150px;
+    height: 150px;
+    background-color: #ff6f61;
+    animation: bounce 2s infinite;
+}
+
+.rotate {
+    width: 150px;
+    height: 150px;
+    background-color: #6fa8dc;
+    animation: rotate 3s infinite;
+}
+
+.fade-in {
+    width: 150px;
+    height: 150px;
+    background-color: #93c47d;
+    opacity: 0;
+    animation: fadeIn 4s infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-50px);
+    }
+
+    60% {
+        transform: translateY(-30px);
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeIn {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}

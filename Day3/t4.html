@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 4</title>
+    <link rel="stylesheet" href="demo.css">
+</head>
+
+<body>
+    <div id="t4"></div>
+
+    <script>
+        function mul_table(n) {
+            for (let i = 1; i <= 10; i++) {
+                document.getElementById("t4").innerHTML += (n + ' * ' + i + ' = ' + n * i + "<br>");
+            }
+        }
+        
+        let n = prompt("Enter number to get table : ","2")
+        // mul_table(number);
+        mul_table(n);
+
+    </script>
+</body>
+
+</html>

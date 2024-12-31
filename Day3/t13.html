@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task 13</title>
+</head>
+<body>
+    <div id="j13"></div>
+
+    <script>
+        var div = document.getElementById("j13");
+        let input = prompt("Enter a string", 'THE LITTLE MERMAID')
+        for(let i = 0; i < input.length; i++) {
+            if (input[i].charCodeAt(0) % 2 == 0) {
+                div.innerHTML += input[i].toUpperCase();
+            } else{
+                div.innerHTML += input[i].toLowerCase();
+            }
+        }
+    </script>
+</body>
+</html>

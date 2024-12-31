@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate Form</title>
+    <link rel="stylesheet" href="t1.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="section">
+            <div class="section-title"><span>1</span> <strong>Candidate Info</strong></div>
+
+            <input type="text" id="name" placeholder="Your Name *" required>
+
+            <input type="email" id="email" placeholder="Your Email *" required>
+
+            <textarea id="about" rows="3" placeholder="About yourself"></textarea>
+            <br><br>
+            <label for="interests">Interests:</label>
+            <select id="interests">
+                <option>Fishkeeping</option>
+                <option>Reading</option>
+                <option>Traveling</option>
+                <option>Sports</option>
+            </select>
+        </div>
+        <div class="section">
+            <br>
+            <div class="section-title"><span>2</span> <strong>Additional Info</strong></div>
+            <textarea id="school" rows="3" placeholder="About Your School"></textarea>
+        </div>
+        <button type="submit">Submit</button>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 6</title>
+    <link rel="stylesheet" href="demo.css">
+</head>
+
+<body>
+    <div id="t6"></div>
+
+    <script>
+        const shift_right = (a, b) => {
+            return a / Math.pow(2, b)
+        }
+
+        let num = prompt("Enter number to shift right (like this : -24, 2): ","-24, 2").split(', ')
+        n1 = num[0]
+        n2 = num[1]
+        document.getElementById("t6").innerHTML = "Right shift of "+n1+">>"+n2+" is "+(shift_right(n1, n2));
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3</title>
+    <link rel="stylesheet" href="demo.css">
+</head>
+
+<body>
+    <div id="t3"></div>
+
+    <script>
+        function check_substring(st) {
+            if (st.includes('ee')) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        let str = prompt("Enter a string to check :", "Hello, Worlde!");
+        let result = check_substring(str);
+        if (result) {
+            document.getElementById("t3").innerHTML = "The string '"+str+"' contains 'ee'";
+        } else {
+            document.getElementById("t3").innerHTML = "The string '"+str+"' does not contain 'ee'";
+        }
+    </script>
+</body>
+
+</html>

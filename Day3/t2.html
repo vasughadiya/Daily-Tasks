@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2</title>
+    <link rel="stylesheet" href="demo.css">
+</head>
+
+<body>
+    <div id="t2"></div>
+
+    <script>
+        function count_digit(n) {
+            let count = 0;
+            while (n > 0) {
+                n /= 10;
+                n = Math.floor(n)
+                count++;
+            }
+            return count;
+        }
+        let num = prompt("Enter a number to count digits", '12543');
+        document.getElementById('t2').innerHTML = "Number of digits in " + num + " : " + count_digit(num);
+        console.log(count_digit(num));
+
+    </script>
+</body>
+
+</html>

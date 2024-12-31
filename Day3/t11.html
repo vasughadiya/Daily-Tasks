@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task 11</title>
+</head>
+
+<body>
+    <div id="t10"></div>
+
+    <script>
+        const task = (sum) => {
+            let digits = 0
+            let temp1 = sum
+            while (temp1 != 0) {
+                temp1 = Math.floor(temp1 / 10);
+                digits++;
+            }
+            if (digits != 1) {
+                let temp = sum;
+                let mul = 1
+                while (temp != 0) {
+                    digit = temp % 10;
+                    mul *= digit;
+                    if (temp == sum) {
+                        document.getElementById('t10').innerHTML += digit + ' ';
+                        temp = Math.floor(temp / 10);
+                        continue;
+                    }
+                    temp = Math.floor(temp / 10);
+                    document.getElementById('t10').innerHTML += ' * ' + digit;
+                }
+                document.getElementById('t10').innerHTML += ' = ' + mul + '<br>';
+                task(mul)
+            }
+        }
+
+        let st = prompt("enter numbers two 2 digit numbers like '10 20'", '16 28');
+        let arr = st.split(' ');
+        let sum = 0;
+        for (let i = 0; i < arr.length; i++) {
+            x = parseInt(arr[i]);
+            if (!Number.isInteger(x)) {
+                alert('invalid input')
+                window.location.href = "j11.html";
+                die()
+            }
+            sum += x;
+            if (i == 0) {
+                document.getElementById('t10').innerHTML = arr[i];
+                continue;
+            }
+            document.getElementById('t10').innerHTML += ' + ' + arr[i];
+        }
+        document.getElementById('t10').innerHTML += ' = ' + sum + '<br>';
+
+        task(sum);
+
+
+    </script>
+</body>
+
+</html>

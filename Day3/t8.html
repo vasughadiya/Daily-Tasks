@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 8</title>
+    <link rel="stylesheet" href="demo.css">
+</head>
+
+<body>
+    <div id="t8"></div>
+    <script>
+        const count_vowels = (st) => {
+            let count = 0;
+            st = st.toLowerCase();
+            for (let i = 0; i < st.length; i++) {
+                if (st[i] == 'a' || st[i] == 'e' || st[i] == 'i' || st[i] == 'o' || st[i] == 'u') {
+                    count++;
+                }
+            }
+            // console.log(count)
+            return count
+        }
+
+        let str = prompt('Enter string to count vowels : ', 'Oelebration')
+        document.getElementById("t8").innerHTML = 'Number of vowels in the "'+str+'" is : ' + count_vowels(str)
+        count_vowels('Oelebration');
+    </script>
+</body>
+
+</html>

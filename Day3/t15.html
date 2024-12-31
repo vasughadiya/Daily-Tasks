@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 15 - Calculator</title>
+    <link rel="stylesheet" href="t15.css">
+</head>
+
+<body>
+    <div>
+        <form action="">
+            <table>
+                <thead>
+                    <tr>
+                        <td colspan="2">
+                            <h1>Calculator</h1>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <label for="num1">Enter first number:</label><br>
+                            <input type="number" id="num1" placeholder="Number 1">
+                        </td>
+                        <td>
+                            <label for="num2">Enter second number:</label><br>
+                            <input type="number" id="num2" placeholder="Number 2">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <label for="operation">Select operations : </label><br>
+                            <select name="operation" id="operation">
+                                <option value="add">Addition</option>
+                                <option value="sub">Subtraction</option>
+                                <option value="mul">Multiplication</option>
+                                <option value="div">Division</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <strong id="answer">
+                                <h3>Answer will be print here!</h3>
+                            </strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <br>
+                            <button type="submit">Submit</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+
+
+
+    <script>
+        const num1 = document.getElementById('num1');
+        const num2 = document.getElementById('num2');
+        const operation = document.getElementById('operation');
+        const answer = document.getElementById('answer');
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            let n1 = parseFloat(num1.value);
+            let n2 = parseFloat(num2.value);
+            let op = operation.value;
+            if (op == 'add') {
+                answer.textContent = 'Addition of ' + n1 + ' and ' + n2 + ' is ' + (n1 + n2);
+            }
+            else if (op == 'sub') {
+                answer.textContent = 'Substraction of ' + n1 + ' and ' + n2 + ' is ' + (n1 - n2);
+            }
+            else if (op == 'mul') {
+                answer.textContent = 'Multiplication of ' + n1 + ' and ' + n2 + ' is ' + (n1 * n2);
+            }
+            else if (op == 'div') {
+                if (n2 != 0) {
+                    answer.textContent = 'Division of ' + n1 + ' and ' + n2 + ' is ' + (n1 / n2);
+                } else {
+                    answer.textContent = "Division by zero is not allowed";
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

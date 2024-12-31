@@ -1,0 +1,220 @@
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Registration Form</title>
+</head>
+
+<body>
+    <form action="" method="POST" id="registrationform">
+        <table>
+            <thead>
+                <tr>
+                    <td colspan="2">
+                        <h1 align="center">Create Account</h1>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <br>
+                        <label for="first_name">
+                            <strong>First name *</strong>
+                        </label>
+                        <br>
+                        <input type="text" name="first_name" id="name" placeholder="enter your first name" required>
+                    </td>
+                    <td>
+                        <br>
+                        <label for="last_name">
+                            <strong>Last name </strong>
+                        </label>
+                        <br>
+                        <input type="text" name="last_name" id="last_name" placeholder="enter your last name">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <br>
+                        <label for="email">
+                            <strong>Email *</strong>
+                        </label>
+                        <br>
+                        <input type="email" name="email" id="email" placeholder="enter your email" size="59">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br>
+                        <label for="password">
+                            <strong>Password *</strong>
+                        </label>
+                        <br>
+                        <input type="password" name="password" id="password" placeholder="enter your password">
+                    </td>
+                    <td>
+                        <br>
+                        <label for="confirm_password">
+                            <strong>Confirm Password *</strong>
+                        </label>
+                        <br>
+                        <input type="password" name="confirm_password" id="confirm_password"
+                            placeholder="enter your password again">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br>
+                        <label for="Gender">
+                            <strong>Gender</strong>
+                        </label>
+                        <br>
+                        <input type="radio" name="gender" id="male" value="male">male
+                        <input type="radio" name="gender" id="female" value="female">female
+                    </td>
+                    <td>
+                        <br>
+                        <label for="hobbies">
+                            <strong>Hobbies</strong>
+                        </label>
+                        <br>
+                        <input type="checkbox" name="interest" id="" value="Music">Music
+                        <input type="checkbox" name="interest" id="" value="Sports">Sports
+                        <input type="checkbox" name="interest" id="" value="Travel">Travel
+                        <input type="checkbox" name="interest" id="" value="Movies">Movies
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br>
+                        <label for="source">
+                            <strong>Source of Income</strong>
+                        </label>
+                        <br>
+                        <select name="source" id="job">
+                            <option value="Employed">Employed</option>
+                            <option value="HR Manager">HR Manager</option>
+                            <option value="Intern">Intern</option>
+                        </select>
+                    </td>
+                    <td>
+                        <br>
+                        <label for="income">
+                            <strong>Income</strong>
+                        </label>
+                        <br>
+                        <input type="range" min="20" max="100" value="20" class="slider" id="myRange">
+                        <button>20k</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br>
+                        <label for="file">
+                            <strong>Upload Profile Picture</strong>
+                        </label>
+                        <br>
+                        <input type="file" name="" id="">
+                    </td>
+                    <td>
+                        <br>
+                        <label for="age">
+                            <strong>Age</strong>
+                        </label>
+                        <br>
+                        <input type="text" name="age" id="age" placeholder="enter your age">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <br>
+                        <label for="bio">
+                            <strong>Bio</strong>
+                        </label>
+                        <br>
+                        <textarea name="bio" id="bio" cols="55" rows="5"></textarea>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td align="right">
+                        <button type="submit" sendMessage()>Register</button>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </form>
+
+    <script type="module">
+
+        // import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyBdDt0khZC8NEFVROir1yGCmgdtJwBnWus",
+            authDomain: "final-18e16.firebaseapp.com",
+            databaseURL: "https://final-18e16-default-rtdb.firebaseio.com",
+            projectId: "final-18e16",
+            storageBucket: "final-18e16.firebasestorage.app",
+            messagingSenderId: "941650787198",
+            appId: "1:941650787198:web:dccb41ea1c3819a844512f",
+            measurementId: "G-SSLS9MX2NX"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+
+        import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
+
+
+
+        //listen for submit event//(1)
+        document
+            .getElementById('registrationform')
+            .addEventListener('submit', formSubmit);
+
+        //Submit form(2)
+        function formSubmit(e) {
+            e.preventDefault();
+            // Get Values from the DOM
+            let name = document.querySelector('#name').value;
+            let email = document.querySelector('#email').value;
+            let password = document.querySelector('#password').value;
+            let bio = document.querySelector('#bio').value;
+            let job = document.querySelector('#job').value;
+            let interest = document.querySelector('#interest').value;
+
+            //send message values(3)
+            sendMessage(name, email, password, bio, job, interest);
+        }
+
+        //Send Message to Firebase(4)
+        function sendMessage(name, email, password, bio, job, interest) {
+            const database = getDatabase();
+
+            set(ref(database, 'users/' + Math.floor(Math.random() * 10000000)), {
+                name: name,
+                email: email,
+                password: password,
+                bio: bio,
+                job: job,
+                Interest: interest
+            }).then(() => {
+                //Show Alert Message(5)
+                document.querySelector('.alert').style.display = 'block';
+                //Hide Alert Message After Seven Seconds(6)
+                setTimeout(function () {
+                    document.querySelector('.alert').style.display = 'none';
+                }, 7000);
+                document.getElementById('registrationform').reset();
+            }).catch((error) => {
+                alert(error)
+            })
+        }
+    </script>
+</body>
+
+</html>

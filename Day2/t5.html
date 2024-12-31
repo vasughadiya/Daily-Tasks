@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase</title>
+    <script src="t5.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-database.js"></script>
+    <link rel="stylesheet" href="t5.css">
+</head>
+
+<body>
+    <div align="center">
+        <form action="#" id="formdata" method="post">
+            <table>
+                <thead>
+                    <tr>
+                        <td colspan="2">
+                            <h1 align="center">Create Account</h1>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <br>
+                            <label for="first_name">
+                                <strong>First name *</strong>
+                            </label>
+                            <br>
+                            <input type="text" name="first_name" id="first_name" placeholder="enter your first name"
+                                required>
+                        </td>
+                        <td>
+                            <!-- <br>
+                            <label for="last_name">
+                                <strong>Last name </strong>
+                            </label>
+                            <br>
+                            <input type="text" name="last_name" id="last_name" placeholder="enter your last name"> -->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <br>
+                            <label for="email">
+                                <strong>Email *</strong>
+                            </label>
+                            <br>
+                            <input type="email" name="email" id="email" placeholder="enter your email" size="59">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <!-- <br>
+                            <label for="password">
+                                <strong>Password *</strong>
+                            </label>
+                            <br>
+                            <input type="password" name="password" id="password" placeholder="enter your password"> -->
+                        </td>
+                        <td>
+                            <!-- <br>
+                            <label for="confirm_password">
+                                <strong>Confirm Password *</strong>
+                            </label>
+                            <br>
+                            <input type="password" name="confirm_password" id="confirm_password"
+                                placeholder="enter your password again"> -->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <!-- <br>
+                            <label for="Gender">
+                                <strong>Gender</strong>
+                            </label>
+                            <br>
+                            <input type="radio" name="gender" id="male" value="male">male
+                            <input type="radio" name="gender" id="female" value="female">female -->
+                        </td>
+                        <td>
+                            <!-- <br>
+                            <label for="hobbies">
+                                <strong>Hobbies</strong>
+                            </label>
+                            <br>
+                            <input type="checkbox" name="hobbies" id="" value="Music">Music
+                            <input type="checkbox" name="hobbies" id="" value="Sports">Sports
+                            <input type="checkbox" name="hobbies" id="" value="Travel">Travel
+                            <input type="checkbox" name="hobbies" id="" value="Movies">Movies -->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <!-- <br>
+                            <label for="source">
+                                <strong>Source of Income</strong>
+                            </label>
+                            <br>
+                            <select name="source" id="source">
+                                <option value="Employed">Employed</option>
+                                <option value="HR Manager">HR Manager</option>
+                                <option value="Intern">Intern</option>
+                            </select> -->
+                        </td>
+                        <td>
+                            <!-- <br>
+                            <label for="income">
+                                <strong>Income</strong>
+                            </label>
+                            <br>
+                            <input type="range" min="20" max="100" value="20" class="slider" id="myRange">
+                            <button>20k</button> -->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <!-- <br>
+                            <label for="file">
+                                <strong>Upload Profile Picture</strong>
+                            </label>
+                            <br>
+                            <input type="file" name="" id=""> -->
+                        </td>
+                        <td>
+                            <!-- <br>
+                            <label for="age">
+                                <strong>Age</strong>
+                            </label>
+                            <br>
+                            <input type="text" name="age" id="age" placeholder="enter your age"> -->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <!-- <br>
+                            <label for="bio">
+                                <strong>Bio</strong>
+                            </label>
+                            <br>
+                            <textarea name="bio" id="bio" cols="55" rows="5"></textarea> -->
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td></td>
+                        <td align="right">
+                            <button type="submit">Submit</button>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </form>
+    </div>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+        import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBAWufmRb09WaohesKGUxCYyRE1tRhiGgM",
+            authDomain: "task-5-f9c5f.firebaseapp.com",
+            databaseURL: "https://task-5-f9c5f-default-rtdb.firebaseio.com",
+            projectId: "task-5-f9c5f",
+            storageBucket: "task-5-f9c5f.firebasestorage.app",
+            messagingSenderId: "629220530471",
+            appId: "1:629220530471:web:02e2c823271a71d9663102",
+            measurementId: "G-ER1EW3D8NT"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        // const analytics = getAnalytics(app);
+        const db = getDatabase(app)
+
+        document.getElementById('submit').addEventListener('click', function (e) {
+            e.preventDefault();
+            set(ref(db, 'user/' + document.getElementById("first_name").values),
+                {
+                    first_name: document.getElementById("first_name").value,
+                    email: document.getElementById("email").value
+                })
+            alert("Login sucessfull!")
+        });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time</title>
+    <link rel="stylesheet" href="t4.css">
+</head>
+
+<body>
+    <div class="container">
+        <form action="#" id="formdata" method="post">
+            <label for="time"><strong>Enter time :</strong></label>
+            <input type="time" id="time" name="time"><br>
+            <strong>Time remaining for lunch : <span id="result"></span></strong><br>
+            <button type="submit" name="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        let endTime = [0, 0];
+        const form = document.getElementById('formdata');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            endTime = form.time.value.split(":").map(Number);
+            const now = new Date();
+            const currentHour = now.getHours();
+            const currentMinute = now.getMinutes();
+            let finalHr = endTime[0] - currentHour;
+            let finalMin = endTime[1] - currentMinute;
+            if (finalMin < 0) {
+                finalMin += 60;
+                finalHr -= 1;
+            }
+            if (finalHr < 0) {
+                finalHr += 24;
+            }
+            document.getElementById("result").innerHTML = finalHr + " hours and " + finalMin +" minutes";
+        });
+    </script>
+</body>
+
+</html>

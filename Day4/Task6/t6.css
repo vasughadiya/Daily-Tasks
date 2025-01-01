@@ -1,0 +1,36 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+table {
+    width: 100%;
+}
+
+th,
+td {
+    padding: 8px;
+    text-align: center;
+}
+
+
+img {
+    max-width: 100px;
+    height: auto;
+}
+
+input[type="file"] {
+    margin-bottom: 20px;
+}
+
+.download-btn {
+    padding: 6px 12px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.download-btn:hover {
+    background-color: #0056b3;
+}

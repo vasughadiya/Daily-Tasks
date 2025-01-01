@@ -1,55 +1,32 @@
-// // Import the functions you need from the SDKs you need
-// import { initializeApp } from "firebase/app";
-// import { getAnalytics } from "firebase/analytics";
-// // TODO: Add SDKs for Firebase products that you want to use
-// // https://firebase.google.com/docs/web/setup#available-libraries
+const form = document.getElementById('contactForm');
 
-// // Your web app's Firebase configuration
-// // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-// let firebaseConfig = {
-//     apiKey: "AIzaSyBAWufmRb09WaohesKGUxCYyRE1tRhiGgM",
-//     authDomain: "task-5-f9c5f.firebaseapp.com",
-//     databaseURL: "https://task-5-f9c5f-default-rtdb.firebaseio.com",
-//     projectId: "task-5-f9c5f",
-//     storageBucket: "task-5-f9c5f.firebasestorage.app",
-//     messagingSenderId: "629220530471",
-//     appId: "1:629220530471:web:02e2c823271a71d9663102",
-//     measurementId: "G-ER1EW3D8NT"
-// };
+const firebaseConfig = {
+    apiKey: "AIzaSyD3o6aoVRN9fTtd4cOty5bKk63inQunkRY",
+    authDomain: "new-day-48973.firebaseapp.com",
+    databaseURL: "https://new-day-48973-default-rtdb.firebaseio.com",
+    projectId: "new-day-48973",
+    storageBucket: "new-day-48973.firebasestorage.app",
+    messagingSenderId: "449333562460",
+    appId: "1:449333562460:web:dc8c1164e45275edaeaa99",
+    measurementId: "G-C1FMXHXDE8"
+};
 
-// // Initialize Firebase
-// const app = initializeApp(firebaseConfig);
-// // firebase.initializeApp(firebaseConfig);
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const database = firebase.database()
+const ref = database.ref("messages")
 
-// // let messagesRef = firebase.database().ref('Collected Data');
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
 
-// document.getElementById('formdata').addEventListener('submit', submitForm);
+    ref.push({
+        name: form.name.value,
+        email: form.email.value,
+        password: form.password.value,
+        age: form.age.value,
+        source: form.source.value,
+        bio: form.bio.value
+    })
 
-// function submitForm(e) {
-//     e.preventDefault();
-//     let first_name = document.querySelector('#first_name').value;
-//     let email = document.querySelector('#email').value;
-//     saveMessage(first_name, email);
-//     document.getElementById('formdata').reset();
-// }
-
-// function getInputVal(id) {
-//     return document.getElementById(id).value;
-// }
-
-// function saveMessage(first_name, email) {
-//     let newMessageRef = messagesRef.push();
-//     newMessageRef.set({
-//         first_name: first_name,
-//         email: email,
-//     });
-// }
-
-// var database = firebase.database();
-
-// // database.ref('data').set({
-// //   name: 'Aisha khan',
-// //   age: 19
-// // });
-
-// Import the functions you need from the SDKs you need
+    form.reset();
+})

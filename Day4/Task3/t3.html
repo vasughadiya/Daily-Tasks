@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remaining Time</title>
+    <link rel="stylesheet" href="t3.css">
+</head>
+
+<body>
+    <div class="container">
+        <form action="#" id="formdata" method="post">
+            <label for="date">Enter Date:</label>
+            <input type="date" name="date" id="date"><br>
+            <span>Remaining Time : <strong id="result">0 Seconds From Now</strong></span><br>
+            <button type="submit" name="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+
+        const form = document.getElementById('formdata');
+
+        var endTime = new Date("2019-10-18T00:00:00") / 1000;
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            endTime = new Date(form.date.value) / 1000
+        })
+
+        console.log(endTime);
+
+
+        function setClock() {
+            var elapsed = new Date() / 1000;
+            var totalSec = endTime - elapsed;
+            var d = parseInt(totalSec / 86400);
+            var h = parseInt(totalSec / 3600) % 24;
+            var m = parseInt(totalSec / 60) % 60;
+            var s = parseInt(totalSec % 60, 10);
+            var result = d + " days, " + h + " hours, " + m + " minutes, " + s + " seconds";
+            document.getElementById('result').innerHTML = result;
+            setTimeout(setClock, 1000);
+        }
+        setClock();
+    </script>
+</body>
+
+</html>

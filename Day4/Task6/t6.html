@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Table Viewer</title>
+    <link rel="stylesheet" href="t6.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Image Table Viewer</h1>
+        <input type="file" id="csvInput" accept=".csv">
+        <table id="imageTable">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Download</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <script>
+        document.getElementById('csvInput').addEventListener('change', handleFileUpload);
+
+        function handleFileUpload(event) {
+            const file = event.target.files[0];
+            if (file && file.type === 'text/csv') {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const csvContent = e.target.result;
+                    const rows = csvContent.split('\n');
+                    populateTable(rows);
+                };
+                reader.readAsText(file);
+            } else {
+                alert('Please upload a valid CSV file.');
+            }
+        }
+
+        function populateTable(rows) {
+            const tableBody = document.querySelector('#imageTable tbody');
+            tableBody.innerHTML = ''; // Clear existing rows
+            rows.forEach(row => {
+                const url = row.trim();
+                if (url.startsWith("https")) {
+                    const tr = document.createElement('tr');
+
+                    const td = document.createElement('td');
+                    const img = document.createElement('img');
+                    img.src = url;
+                    td.appendChild(img);
+                    tr.appendChild(td);
+
+                    const td1 = document.createElement('td');
+                    const btn = document.createElement('button');
+                    btn.textContent = 'Download';
+                    btn.className = 'download-btn';
+                    btn.onclick = () => downloadImage(url);
+                    td1.appendChild(btn);
+                    tr.appendChild(td1);
+
+                    tableBody.appendChild(tr);
+                } else {
+                    const tr = document.createElement('tr');
+                    const td = document.createElement('td');
+                    const texts = document.createTextNode('image URL is not valid');
+                    td.appendChild(texts);
+                    tr.appendChild(td)
+                    const td1 = document.createElement('td');
+                    const texts1 = document.createTextNode('-----');
+                    td1.appendChild(texts1);
+                    tr.appendChild(td1);
+                    tableBody.appendChild(tr);
+                }
+            });
+        }
+
+        function downloadImage(url) {
+            const anchor = document.createElement('a');
+            anchor.href = url;
+            anchor.download = 'image';
+            anchor.target = '_blank';
+            anchor.click();
+        }
+    </script>
+
+</body>
+
+</html>

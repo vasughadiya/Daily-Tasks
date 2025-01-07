@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <title>Salesforce</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="images/logo-salesforce.svg" type="image/gif" sizes="16x16">
+</head>
+
+<body>
+    <script src="javascript.js"></script>
+
+    <header>
+        <div class="container">
+            <div class="left-session">
+                <div class="logo">
+                    <a href="index.html"><img width="68px" height="48px" src="images/logo-salesforce.svg" alt=""></a>
+                </div>
+                <div class="navlinks">
+                    <input type="checkbox" id="check">
+                    <label for="check" class="checkbtn">
+                        <i class="fas fa-bars"></i>
+                    </label>
+                    <ul>
+                        <li><a href="#">Products</a></li>
+                        <li><a href="#">Industries</a></li>
+                        <li><a href="#">Customers</a></li>
+                        <li><a href="#">Learing</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Company</a></li>
+                        <li><a href="#">Salesforce+</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="right-session">
+                <div class="contact">
+                    <a href="#">Contact Us</a>
+                    <p>1800-420-7332</p>
+                </div>
+                <button id="search-btn"><i class="fa-solid fa-magnifying-glass fa-lg"></i></button>
+                <button id="globe-btn"><i class="fa-solid fa-globe fa-lg"></i></button>
+                <button id="login"><i class="fa-solid fa-user fa-lg"></i> Login
+                    <div class="login-dropdown">
+                        <h2>Login</h2>
+                        <h5>Products</h5>
+                        <a class="dropdown-link" href="#">Salesforce</a><br><br>
+                        <a class="dropdown-link" href="#">Marketing Cloud</a>
+                        <hr style="width: 270px; margin-left: 0;">
+                        <h5>Experience</h5>
+                        <a class="dropdown-link" href="#">TrailBlaziar Account</a>
+                        <p>Access Trailhead, your Trailblazer profile, community, learning, original series, events,
+                            support, and more.</p>
+                    </div>
+                </button>
+                <button id="btn-try">Try for free</button>
+
+            </div>
+        </div>
+    </header>
+
+    <div class="chatAI" id="chatAI">
+        <div class="ai">
+            <img src="data:image/png;base64,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"
+                alt="">
+        </div>
+        <a href="#">Let's Chat</a>
+    </div>
+
+    <main class="main">
+
+        <div class="dreamforce">
+            <img width="auto" height="24"
+                src="https://wp.sfdcdigital.com/en-in/wp-content/uploads/sites/21/2024/09/Dreamforce-2021-Cloud-Logo-RGB-1-2.png?resize=768,151"
+                alt="">
+            <h3>Humans with Agents, driving success together.</h3>
+            <a href="#">Discover Agentforce</a>
+        </div>
+
+        <div class="section1">
+            <div class="section1-left">
+                <div class="heading">
+                    <h1>Try Salesforce Starter Suite for free.</h1>
+                </div>
+                <div class="subheading">
+                    <p>Unite marketing, sales, and service in a single app. Try Salesforce Starter Suite today. There's
+                        nothing to install. No credit card required.</p>
+                </div>
+                <div class="section1-btn">
+                    <button class="blue-button"><strong>Start free trial</strong></button>
+                    <button class="white-button"><strong>watch demo</strong></button>
+                </div>
+            </div>
+            <div class="section1-right">
+                <!-- <img src="images/session1-right-img.webp" alt=""> -->
+                <iframe src="https://www.youtube.com/embed/dVuYVu2yKKg?loop=1&mute=1&controls=0">
+                    <!-- https://www.youtube.com/embed/tgbNymZ7vqY -->
+                    <!-- https://www.youtube.com/watch?v=dVuYVu2yKKg -->
+                </iframe>
+            </div>
+        </div>
+
+        <div class="section2">
+            <h1 class="headings">Learn what Salesforce products can do for you.</h1>
+            <div class="cards">
+                <div class="card1">
+                    <div class="card-img">
+                        <img src="images/card1.jpg" alt="">
+                    </div>
+                    <div class="card-content">
+                        <h3>Small Business</h3>
+                        <p>Sales, service, and email outreach tools in a single app.</p>
+                    </div>
+                    <div class="card-link">
+                        <a href="#">Try for free</a>
+                    </div>
+                </div>
+                <div class="card2">
+                    <div class="card-img">
+                        <img src="images/card2.jpg" alt="">
+                    </div>
+                    <div class="card-content">
+                        <h3>Sales Cloud</h3>
+                        <p>Close more deals and speed up growth with the #1 CRM.</p>
+                    </div>
+                    <div class="card-link">
+                        <a href="#">Watch demo</a>
+                    </div>
+                </div>
+                <div class="card3">
+                    <div class="card-img">
+                        <img src="images/card3.webp" alt="">
+                    </div>
+                    <div class="card-content">
+                        <h3>Service Cloud</h3>
+                        <p>Make customers happy faster and build loyalty with Service Cloud.</p>
+                    </div>
+                    <div class="card-link">
+                        <a href="#">Watch demo</a>
+                    </div>
+                </div>
+                <div class="card4">
+                    <div class="card-img">
+                        <img src="images/card4.jpg" alt="">
+                    </div>
+                    <div class="card-content">
+                        <h3>Marketing Cloud</h3>
+                        <p>Build customer relationships for life with data-first digital marketing.</p>
+                    </div>
+                    <div class="card-link">
+                        <a href="#">Watch demo</a>
+                    </div>
+                </div>
+            </div>
+            <div class="section2-btn">
+                <button class="white-button">View all our products</button>
+            </div>
+        </div>
+
+        <div class="section3">
+            <div class="discription">
+                <h1 class="headings">We bring companies and customers together</h1>
+            </div>
+            <div class="sub-discription">
+                <p>Salesforce is the world's most trusted customer relationship management (CRM) platform. We help your
+                    marketing, sales, commerce, service and IT teams work as one from anywhere — so you can keep your
+                    customers happy everywhere.</p>
+            </div>
+            <div class="section3-btn">
+                <button class="blue-button">Start free trial</button>
+                <button class="white-button">watch demo</button>
+            </div>
+        </div>
+
+        <div class="section4">
+            <div class="discription">
+                <h1 class="headings">Learn valuable skills for free, with Trailhead.</h1>
+            </div>
+            <div class="sub-discription">
+                <p>Follow guided learning paths and get hands-on to learn Salesforce, digital, and soft skills from
+                    anywhere.</p>
+            </div>
+            <div class="cards">
+                <div class="skill-card1">
+                    <div class="card-img">
+                        <img class="skill-card-img" src="images/skill-card-img1.webp" alt="">
+                    </div>
+                    <div class="card-content">
+                        <h3>Salesforce Values: Quick Look</h3>
+                        <p>Learn how Salesforce helps your business build stronger relationships with your customers.
+                        </p>
+                    </div>
+                    <div class="card-link">
+                        <a href="#">Start learning</a>
+                    </div>
+                </div>
+                <div class="skill-card1">
+                    <div class="card-img">
+                        <img class="skill-card-img" src="images/skill-card-img2.webp" alt="">
+                    </div>
+                    <div class="card-content">
+                        <h3>Small Business</h3>
+                        <p>Learn how to use customer relationship management (CRM) software to grow your business.</p>
+                    </div>
+                    <div class="card-link">
+                        <a href="#">Start learning</a>
+                    </div>
+                </div>
+                <div class="skill-card1">
+                    <div class="card-img">
+                        <img class="skill-card-img" src="images/skill-card-img3.webp" alt="">
+                    </div>
+                    <div class="card-content">
+                        <h3>Sales Cloud Basics </h3>
+                        <p>Grow your business, boost productivity, and make smart decisions with Sales Cloud.</p>
+                    </div>
+                    <div class="card-link">
+                        <a href="#">Start learning</a>
+                    </div>
+                </div>
+            </div>
+            <div class="section4-btn">
+                <button class="white-button">Learn for free</button>
+            </div>
+        </div>
+
+        <div class="section5">
+            <div class="discription">
+                <h1 class="headings">Over 150,000 companies, both big and small, are growing their business with
+                    Salesforce.</h1>
+            </div>
+            <div class="section5-btn">
+                <button class="white-button">View all customer</button>
+            </div>
+            <div class="logo-cards">
+                <div class="row1">
+                    <div class="card">
+                        <a href="#"><img src="Logo-Cards/logo-balaji.webp" alt=""></a>
+                    </div>
+                    <div class="card">
+                        <a href="#"><img src="Logo-Cards/logo-flame.webp" alt=""></a>
+                    </div>
+                    <div class="card">
+                        <a href="#"><img src="Logo-Cards/logo-genpact.webp" alt=""></a>
+                    </div>
+                    <div class="card">
+                        <a href="#"><img src="Logo-Cards/logo-godrejboyce.webp" alt=""></a>
+                    </div>
+                    <div class="card">
+                        <a href="#"><img src="Logo-Cards/logo-mahindra.webp" alt=""></a>
+                    </div>
+                    <div class="card">
+                        <a href="#"><img src="Logo-Cards/logo-pepe.webp" alt=""></a>
+                    </div>
+                </div>
+                <div class="row2">
+                    <div class="card">
+                        <a href="#"><img src="Logo-Cards/logo-razorpay.webp" alt=""></a>
+                    </div>
+                    <div class="card">
+                        <a href="#"><img src="Logo-Cards/logo-secutech.webp" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="section6">
+                <div class="block">
+                    <div class="left-side">
+                        <div class="discription">
+                            <h1 class="headings">Try Salesforce for free. No credit card required, no software to
+                                install.</h1>
+                        </div>
+                        <div class="section6-btn">
+                            <button class="blue-button">Start free trial</button>
+                            <button class="white-button">See pricing</button>
+                        </div>
+                    </div>
+                    <div class="right-side">
+                        <img src="images/section6-img.webp" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section7">
+            <h1 class="headings">How can we help grow your business?</h1>
+            <div class="s7-cards">
+                <div class="s7-card1">
+                    <div class="s7-card-img">
+                        <img src="images/section7-card-img1.webp" alt="">
+                    </div>
+                    <div class="card-link">
+                        <a href="#">Sell faster</a>
+                    </div>
+                </div>
+                <div class="s7-card2">
+                    <div class="s7-card-img">
+                        <img src="images/section7-card-img2.webp" alt="">
+                    </div>
+                    <div class="card-link">
+                        <a href="#">Close more deals</a>
+                    </div>
+                </div>
+                <div class="s7-card3">
+                    <div class="s7-card-img">
+                        <img src="images/section7-card-img3.jpg" alt="">
+                    </div>
+
+                    <div class="card-link">
+                        <a href="#">Scale service</a>
+                    </div>
+                </div>
+                <div class="s7-card4">
+                    <div class="s7-card-img">
+                        <img src="images/section7-card-img4.jpg" alt="">
+                    </div>
+
+                    <div class="card-link">
+                        <a href="#">Build customer relationships</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section8">
+            <div class="discription">
+                <h1 class="headings">Our technology helps people create better jobs, lives, companies, and communities.
+                </h1>
+            </div>
+            <div class="section8-cards-container">
+                <div class="section8-cards">
+                    <img src="images/section8-card-img1.webp" alt="">
+                    <p>Technology given for free or discounted</p>
+                </div>
+                <div class="section8-cards">
+                    <img src="images/section8-card-img2.webp" alt="">
+                    <p>Fortune 100 Best Companies to Work For 2024 (16 years in a row)</p>
+                </div>
+                <div class="section8-cards">
+                    <img src="images/section8-card-img3.webp" alt="">
+                    <p>Fortune World’s Most Admired Companies 2024</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section10">
+            <div class="s10-links1">
+                <div class="logo">
+                    <a href="index.html"><img src="images/logo-salesforce.svg" alt=""></a>
+                </div>
+                <div class="social-midea-link">
+                    <a href="#"><i class="fa-brands fa-square-facebook fa-2xl" style="color: #5a5858;"></i></a>
+                    <a href="#"><i class="fa-brands fa-square-x-twitter fa-2xl" style="color: #5a5858;"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin fa-2xl" style="color: #5a5858;"></i></a>
+                    <a href="#"><i class="fa-brands fa-square-instagram fa-2xl" style="color: #5a5858;"></i></a>
+                    <a href="#"><i class="fa-brands fa-square-youtube fa-2xl" style="color: #5a5858;"></i></a>
+                </div>
+                <div class="contact">
+                    <p>Call us at 1800-420-7332</p>
+                </div>
+            </div>
+            <div class="s10-links">
+                <h3>New to Salesforce?</h3>
+                <ul>
+                    <li><a href="#">Why Salesforce</a></li>
+                    <li><a href="#">What is CRM?</a></li>
+                    <li><a href="#">Explore All Products</a></li>
+                    <li><a href="#">SaaS</a></li>
+                    <li><a href="#">Customer Success</a></li>
+                    <li><a href="#">Product Pricing</a></li>
+                </ul>
+            </div>
+            <div class="s10-links">
+                <h3>About Salesforce</h3>
+                <ul>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Security and Preference</a></li>
+                    <li><a href="#">Salesforce.org</a></li>
+                    <li><a href="#">Best CRM Software</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                    <li><a href="#">Legal</a></li>
+                    <li><a href="#">Give us your Feedback</a></li>
+                </ul>
+            </div>
+            <div class="s10-links">
+                <h3>Popular Links</h3>
+                <ul>
+                    <li><a href="#">New Release Features</a></li>
+                    <li><a href="#">Salesforce Mobile App</a></li>
+                    <li><a href="#">Business App Store</a></li>
+                    <li><a href="#">Dreamforce</a></li>
+                    <li><a href="#">CRM Software</a></li>
+                    <li><a href="#">Salesforce Plus</a></li>
+                    <li><a href="#">Salesforce for startups</a></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-btn">
+            <button><i class="fa-solid fa-globe"></i> Worldwide</button>
+        </div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <ul>
+                    <li><a href="#">Leagal</a>
+                    <li><a href="#">Terms of service</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Responsible Disclosure</a></li>
+                    <li><a href="#">Trust</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Cookie Preferences</a></li>
+                    <li><a href="#">Your Privacy Choices</a></li>
+                </ul>
+            </div>
+            <div class="footer-copyright">
+                <h6>© Copyright 2023 Salesforce, Inc. <a href="#">All rights reserved.</a> Various trademarks held by
+                    their
+                    respective owners.</h6>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

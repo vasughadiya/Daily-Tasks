@@ -1,0 +1,23 @@
+#div1 {
+    margin-left: 300px;
+    margin-top: 300px;
+    width: 350px;
+    height: 350px;
+    border: 1px solid #aaaaaa;
+    border-radius: 50%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#main {
+    display: flex;
+    margin-top: 20px;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    cursor: grab;
+}

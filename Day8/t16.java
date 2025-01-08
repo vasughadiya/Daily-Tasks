@@ -1,28 +1,36 @@
-public class t16 {
+import java.util.*;
 
-    public static int diceCombinations(int numDice, int targetSum) {
-        if (numDice < 1 || numDice > 6) {
-            throw new IllegalArgumentException("Number of dice must be between 1 and 6.");
+public class t16 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter number of dices : ");
+        int n = sc.nextInt();
+        System.out.print("Enter outcome of the roll : ");
+        int roll = sc.nextInt();
+        System.out.println("Number of combinations : " + result(n, roll));
+        sc.close();
+    }
+
+    public static int result(int n, int sum) {
+        if (n < 1 || n > 6) {
+            throw new IllegalArgumentException("Number of dies must be between 1 and 6");
         }
-        if (targetSum < numDice || targetSum > 6 * numDice) {
+        if (sum < n || sum > 6 * n) {
             return 0;
         }
-        return countCombinations(numDice, targetSum);
+        return comb(n, sum);
     }
-    private static int countCombinations(int diceLeft, int targetSum) {
-        if (diceLeft == 1) {
-            return (targetSum >= 1 && targetSum <= 6) ? 1 : 0;
+
+    public static int comb(int left, int sum) {
+        if (left == 1) {
+            return (sum >= 1 && sum <= 6) ? 1 : 0;
         }
         int count = 0;
         for (int i = 1; i <= 6; i++) {
-            if (targetSum - i >= 0) {
-                count += countCombinations(diceLeft - 1, targetSum - i);
+            if (sum - i >= 0) {
+                count += comb(left - 1, sum - i);
             }
         }
         return count;
-    }
-    public static void main(String[] args) {
-        System.out.println(diceCombinations(3, 4));
-        System.out.println(diceCombinations(6, 20));
     }
 }

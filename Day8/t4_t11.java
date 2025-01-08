@@ -142,40 +142,40 @@ public class t4_t11 {
 
         // TASK 11 : completed
 
-        // for (int i = 1; i <= 5; i++) {
-        // for (int j = i; j < 5; j++) {
-        // System.out.print(" ");
-        // }
-        // for (int k = 1; k <= (2 * i - 1); k++) {
-        // if (k == 1 || k == (2 * i - 1) || i <= 5) {
-        // if (k % 2 == 0) {
-        // System.out.print(" " + (i - 1) + " ");
-        // } else {
-        // System.out.print('*');
-        // }
-        // } else {
-        // System.out.print(" ");
-        // }
-        // }
-        // System.out.println();
-        // }
-        // for (int i = 4; i >= 1; i--) {
-        // for (int j = 5; j > i; j--) {
-        // System.out.print(" ");
-        // }
-        // for (int k = (2 * i - 1); k >= 1; k--) {
-        // if (k == 1 || k == (2 * i - 1) || i <= 5) {
-        // if (k % 2 == 0) {
-        // System.out.print(" "+(i-1)+" ");
-        // } else {
-        // System.out.print('*');
-        // }
-        // } else {
-        // System.out.print(" ");
-        // }
-        // }
-        // System.out.println();
-        // }
+        for (int i = 1; i <= 5; i++) {
+            for (int j = i; j < 5; j++) {
+                System.out.print("  ");
+            }
+            for (int k = 1; k <= (2 * i - 1); k++) {
+                if (k == 1 || k == (2 * i - 1) || i <= 5) {
+                    if (k % 2 == 0) {
+                        System.out.print(" " + (i - 1) + " ");
+                    } else {
+                        System.out.print('*');
+                    }
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+        for (int i = 4; i >= 1; i--) {
+            for (int j = 5; j > i; j--) {
+                System.out.print("  ");
+            }
+            for (int k = (2 * i - 1); k >= 1; k--) {
+                if (k == 1 || k == (2 * i - 1) || i <= 5) {
+                    if (k % 2 == 0) {
+                        System.out.print(" " + (i - 1) + " ");
+                    } else {
+                        System.out.print('*');
+                    }
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
 
     }
 }
